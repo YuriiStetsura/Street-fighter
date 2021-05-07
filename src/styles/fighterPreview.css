@@ -11,3 +11,49 @@
 .fighter-preview___left {
   align-items: flex-start;
 }
+
+.fighter-preview___img {
+  height: 200px;
+  margin-bottom: 5px;
+}
+
+.fighter-preview___right img {
+  transform: scaleX(-1);
+}
+
+.fighter-preview___details {
+  background: #ffdfa7;
+  border: 5px solid #ca9650;
+  text-align: center;
+  padding: 5px 10px;
+  width: 115px;
+}
+
+.fighter-preview___details h4 {
+  margin: 0 0 10px;
+  color: white;
+  text-shadow: 1px 1px 6px black;
+  font-size: 20px;
+  font-family: 'Arial Black';
+  font-weight: 700;
+}
+
+.fighter-preview___details i {
+  padding-right: 5px;
+}
+
+.fighter-preview___details span {
+  margin-left: 3px;
+}
+
+.fa-heart {
+  color: rgb(204, 0, 0);
+}
+
+.fa-attack {
+  color: rgb(27, 27, 27)
+}
+
+.fa-defense {
+  color: rgb(85, 37, 37);
+}

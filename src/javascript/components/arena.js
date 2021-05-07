@@ -1,5 +1,7 @@
 import { createElement } from '../helpers/domHelper';
 import { createFighterImage } from './fighterPreview';
+import { fight } from './fight'
+import { showWinnerModal } from './modal/winner'
 
 export function renderArena(selectedFighters) {
   const root = document.getElementById('root');
@@ -11,6 +13,10 @@ export function renderArena(selectedFighters) {
   // todo:
   // - start the fight
   // - when fight is finished show winner
+  fight(...selectedFighters)
+    .then(fighter => {
+      showWinnerModal(fighter)
+    })
 }
 
 function createArena(selectedFighters) {
@@ -32,7 +38,7 @@ function createHealthIndicators(leftFighter, rightFighter) {
   return healthIndicators;
 }
 
-function createHealthIndicator(fighter, position) {
+export function createHealthIndicator(fighter, position) {
   const { name } = fighter;
   const container = createElement({ tagName: 'div', className: 'arena___fighter-indicator' });
   const fighterName = createElement({ tagName: 'span', className: 'arena___fighter-name' });
@@ -66,3 +72,9 @@ function createFighter(fighter, position) {
   fighterElement.append(imgElement);
   return fighterElement;
 }
+
+// export function reduceHealthIndicator(fighter, position, initialHealth) {
+//   const healthIndicator = document.getElementById(`${position}-fighter-indicator`);
+
+//   healthIndicator.style.width = fighter.health <= 0 ? '0' : `${Math.trunc(fighter.health / initialHealth * 100)}%`
+// }
